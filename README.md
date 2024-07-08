@@ -107,17 +107,3 @@ To get started with this template, please follow the instructions in the respect
 - Your hosted application will be tested to ensure it meets all the requirements.
 - Your repository will be tested to ensure it works correctly after running `docker-compose up -d`.
 
-## Additional Instructions
-
-- Improve all README files with detailed instructions on how to deploy the app, both manually and using Docker.
-
-## Usage
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/yourrepository.git
-   cd yourrepository
-
-
-
-
