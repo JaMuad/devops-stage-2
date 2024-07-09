@@ -57,6 +57,7 @@ To get started with this template, please follow the instructions in the respect
 - **Adminer**: Database management tool running on port 8080.
 
 ### URLs
+for now only http:// works 
 
 | Service    | URL                          |
 |------------|------------------------------|
