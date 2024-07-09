@@ -11,12 +11,18 @@ services:
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.myresolver.acme.dnschallenge=true"
       - "--certificatesresolvers.myresolver.acme.dnschallenge.provider=route53"
+      - "--entrypoints.traefik.address=:8081"
     ports:
       - "80:80"
       - "443:443"
+      - "8081:8081"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./letsencrypt:/letsencrypt"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`proxy.muadmaalim.buzz`)"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8081"
     networks:
       - web
 
