@@ -57,14 +57,14 @@ To get started with this template, please follow the instructions in the respect
 - **Adminer**: Database management tool running on port 8080.
 
 ### URLs
-for now only http:// works 
+for now only http:// works and db works on https://
 
 | Service    | URL                          |
 |------------|------------------------------|
 | Main Domain| [muadmaalim.buzz](http://muadmaalim.buzz) |
 | Frontend   | [www.muadmaalim.buzz](http://www.muadmaalim.buzz) |
 | Proxy      | [proxy.muadmaalim.buzz](http://proxy.muadmaalim.buzz) |
-| Database   | [db.muadmaalim.buzz](http://db.muadmaalim.buzz) |
+| Database   | [db.muadmaalim.buzz](https://db.muadmaalim.buzz) |
 
 ### Work In Progress
 
