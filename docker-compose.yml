@@ -38,7 +38,7 @@ services:
     environment:
       DOMAIN: muadmaalim.buzz
       ENVIRONMENT: production
-      DATABASE_URL: postgres://app:hng123@db:5432/app
+      DATABASE_URL: postgres://app:changethis123@db:5432/app
     depends_on:
       - db
     labels:
@@ -68,7 +68,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: app
-      POSTGRES_PASSWORD: hng123
+      POSTGRES_PASSWORD: changethis123
       POSTGRES_DB: app
     volumes:
       - postgres_data:/var/lib/postgresql/data
