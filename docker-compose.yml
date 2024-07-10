@@ -43,7 +43,7 @@ services:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`muadmaalim.buzz`)"
+      - "traefik.http.routers.backend.rule=Host(`${DOMAIN}`) && (PathPrefix(`/api`) || PathPrefix(`/docs`) || PathPrefix(`/redoc`))"
       - "traefik.http.services.backend.loadbalancer.server.port=8000"
     networks:
       - web
