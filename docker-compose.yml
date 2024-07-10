@@ -7,7 +7,7 @@ services:
       - "--providers.docker=true"
       - "--entryPoints.web.address=:80"
       - "--entryPoints.websecure.address=:443"
-      - "--certificatesresolvers.myresolver.acme.email=muadmaalim@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.email=${ACME_EMAIL}"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
@@ -22,7 +22,7 @@ services:
       - "./letsencrypt:/letsencrypt"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`proxy.muadmaalim.buzz`)"
+      - "traefik.http.routers.traefik.rule=Host(`proxy.${DOMAIN}`)"
       - "traefik.http.services.traefik.loadbalancer.server.port=8081"
     networks:
       - web
@@ -36,7 +36,7 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      DOMAIN: muadmaalim.buzz
+      DOMAIN: ${DOMAIN}
       ENVIRONMENT: production
       DATABASE_URL: postgres://app:changethis123@db:5432/app
     depends_on:
