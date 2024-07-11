@@ -10,7 +10,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.email=muadmaalim@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"  #you can change stagning, production to have admin power or to local as well 
       - "--entrypoints.traefik.address=:8090"
       - "--log.level=DEBUG"
     ports:
@@ -21,7 +21,6 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./letsencrypt:/letsencrypt"
     labels:
-      # Redirect www.muadmaalim.buzz to muadmaalim.buzz
       - "traefik.http.routers.redirect-to-non-www.rule=Host(`www.muadmaalim.buzz`)"
       - "traefik.http.middlewares.redirect-to-non-www.redirectregex.regex=^http://www.(.*)"
       - "traefik.http.middlewares.redirect-to-non-www.redirectregex.replacement=http://$${1}"
@@ -33,7 +32,6 @@ services:
       - "traefik.http.middlewares.redirect-to-non-www-secure.redirectregex.replacement=https://$${1}"
       - "traefik.http.routers.redirect-to-non-www-secure.middlewares=redirect-to-non-www-secure"
 
-      # Redirect all to HTTPS
       - "traefik.http.routers.http-catchall.entrypoints=web"
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
